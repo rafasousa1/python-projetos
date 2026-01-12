@@ -3,6 +3,13 @@ def adiconar_tarefa(tarefas, nome_tarefa):
     tarefas.append(tarefa)
     print(f"A tarefa {nome_tarefa}, foi adicionada")
     return
+
+def ver_tarefas(tarefas):
+    print("\nLista de Tarefas")
+    for i, tarefa in enumerate(tarefas, start=1):
+        status = "✓" if tarefa["completada"] else " "
+        nome_tarefa = tarefa["tarefa"]
+        print(f"{i}. [{status}] {nome_tarefa}")
  
 tarefas = []
 
@@ -20,6 +27,8 @@ while True:
     if escolha == '1':
         nome_tarefa = input("Digite o nome da tarefa que quer adicionar: ")
         adiconar_tarefa(tarefas,nome_tarefa)
+    elif escolha == '2':
+        ver_tarefas(tarefas)
     elif escolha == '6':
         break
 
