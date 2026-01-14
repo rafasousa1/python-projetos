@@ -20,6 +20,13 @@ def atualiza_nome_tarefa(tarefas, indice_tarefa, tarefa_nova):
     else:
         print("Indíce de tarefa inválido!")
     return
+
+def completar_tarefa(tarefas, indice_tarefa):
+    ajuste_indice = int(indice_tarefa) - 1
+    tarefas[ajuste_indice]["completada"] = True
+    print(f'Tarefa {indice_tarefa} marcada como completada!')
+    return
+
  
 tarefas = []
 
@@ -37,13 +44,21 @@ while True:
     if escolha == '1':
         nome_tarefa = input("Digite o nome da tarefa que quer adicionar: ")
         adiconar_tarefa(tarefas,nome_tarefa)
+
     elif escolha == '2':
         ver_tarefas(tarefas)
+
     elif escolha == '3':
         ver_tarefas(tarefas)
         indice_tarefa = input("Digite o número da tarefa que quer atualizar: ")
         novo_nome = input("Digite o nome da nova tarefa: ")
         atualiza_nome_tarefa(tarefas, indice_tarefa, novo_nome)
+
+    elif escolha == '4':
+        ver_tarefas(tarefas)
+        indice_tarefa = input("Digite o número da tarefa que quer atualizar: ")
+        completar_tarefa(tarefas, indice_tarefa)
+
     elif escolha == '6':
         break
 
